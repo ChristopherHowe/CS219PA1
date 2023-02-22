@@ -7,6 +7,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct Response{
+    uint32_t value;
+    bool overflow;
+
+    Response(uint32_t v, bool o){
+        value = v;
+        overflow = o;
+    }
+};
+
 class Operator{
     protected:
     string name;
@@ -20,7 +30,7 @@ class Operator{
     string getName();
     int getNumOperands();
 
-    virtual uint32_t execute(string[MAX_OPERANDS]) = 0;
+    virtual Response execute(string[MAX_OPERANDS]) = 0;
 };
 
 #endif
