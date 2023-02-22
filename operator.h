@@ -16,7 +16,7 @@ class Operator{
     string getName();
     int getNumOperands();
 
-    virtual int execute(int, int, int) = 0;
+    virtual uint32_t execute(uint32_t a = 0, uint32_t b = 0, uint32_t c = 0) = 0;
 };
 
 #endif
