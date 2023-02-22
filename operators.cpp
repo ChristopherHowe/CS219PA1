@@ -10,9 +10,13 @@ class Operators{
     Operator* operators[NUM_OPERATORS];
     public:
     Operators(){
-        Add add;
-        operators[0]= &add;
+        operators[0] = new Add;
         numOperators = NUM_OPERATORS;
+    }
+    ~Operators(){
+        for(int i = 0; i < NUM_OPERATORS; i++){
+            delete operators[i];
+        }
     }
 
     Operator** getOperators(){

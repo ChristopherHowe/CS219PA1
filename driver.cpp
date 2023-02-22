@@ -16,10 +16,10 @@ int main(){
     cout << "lines Read: " << linesRead << endl;
     for(int i = 0; i < linesRead; i++){
         cout << "Operator: " << operatorNames[i];
-        for(int x = 0; x < MAX_OPERANDS; x++){
+        for(int x = 0; x < MAX_OPERANDS && commandOperands[i][x] != ""; x++){
             cout << " operand: " << commandOperands[i][x];
         }
-        cout << endl << "result: " << resolve(operatorNames[i],commandOperands[i]); 
+        cout << endl << "result: " << resolve(operatorNames[i],commandOperands[i]) << endl; 
     }
     return 0;
 }
@@ -51,7 +51,7 @@ uint32_t resolve(string opName, string operands[MAX_OPERANDS]){
     Operators operators;
     for (int i=0; i<NUM_OPERATORS; i++){
         Operator* op = operators.getOperators()[i];
-        cout << "check: opName: " << opName << " op->getName(): " << op->getName() << endl; 
+        //cout << "check: opName: " << opName << " op->getName(): " << op->getName() << endl; 
         if (opName == op->getName()){
             //check for if enough operators are provided
             for(int x = 0; x < op->getNumOperands(); x++){
@@ -61,7 +61,6 @@ uint32_t resolve(string opName, string operands[MAX_OPERANDS]){
                     return -1;
                 }
             }
-            cout << "executing operation" << endl;
             return op->execute(operands);
         }
     }
