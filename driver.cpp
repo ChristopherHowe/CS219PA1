@@ -1,11 +1,9 @@
-#include "addOp.h"
-
-#define NUM_OPERATORS 15
+#include "operators.h"
 
 int main(){
-    Add add;
-    Operator* operators[NUM_OPERATORS] = {&add};
+
+    Operators operators;
     uint32_t test = 0x00A;
-    cout << operators[0]->execute(test,test);
+    cout << operators.getOperators()[0]->execute(test,test);
     return 0;
 }
