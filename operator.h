@@ -1,6 +1,8 @@
 #ifndef OPERATOR_H
 #define OPERATOR_H
 
+#define MAX_OPERANDS 3
+
 #include <iostream>
 using namespace std;
 
