@@ -6,11 +6,11 @@
 
 int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[MAX_COMMANDS][MAX_OPERANDS]);
 uint32_t resolve(string oporator, string operands[MAX_OPERANDS]);
+
 int main(){
     Operators operators;
     string operatorNames[MAX_COMMANDS];
     string commandOperands[MAX_COMMANDS][MAX_OPERANDS];
-    cout << "before get Commands" << endl;
     int linesRead = getCommands("input.txt", operatorNames, commandOperands);
 
     cout << "lines Read: " << linesRead << endl;
@@ -26,11 +26,9 @@ int main(){
 
 
 int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[MAX_COMMANDS][MAX_OPERANDS]){
-    cout << "in get commands" << endl;
     string line; 
     int linesRead = 0;
     ifstream commands(fileName);
-    cout << "after construction" << endl;
     if(commands.is_open()){
 
         while(getline(commands, line)){
@@ -53,6 +51,7 @@ uint32_t resolve(string opName, string operands[MAX_OPERANDS]){
     Operators operators;
     for (int i=0; i<NUM_OPERATORS; i++){
         Operator* op = operators.getOperators()[i];
+        cout << "check: opName: " << opName << " op->getName(): " << op->getName() << endl; 
         if (opName == op->getName()){
             //check for if enough operators are provided
             for(int x = 0; x < op->getNumOperands(); x++){
@@ -62,6 +61,7 @@ uint32_t resolve(string opName, string operands[MAX_OPERANDS]){
                     return -1;
                 }
             }
+            cout << "executing operation" << endl;
             return op->execute(operands);
         }
     }

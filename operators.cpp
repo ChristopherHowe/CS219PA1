@@ -5,16 +5,13 @@
 
 #define NUM_OPERATORS 1
 
-Add add;
-
 class Operators{
     int numOperators;
-    Operator* operators[NUM_OPERATORS] = {
-        &add, 
-    };
-
+    Operator* operators[NUM_OPERATORS];
     public:
     Operators(){
+        Add add;
+        operators[0]= &add;
         numOperators = NUM_OPERATORS;
     }
 
