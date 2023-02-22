@@ -28,7 +28,9 @@ int main(){
 
 
 int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[MAX_COMMANDS][MAX_OPERANDS]){
+    cout << "in get commands" << endl;
     string line; 
+
     int linesRead = 0;
     ifstream commands(fileName);
     if(commands.is_open()){
