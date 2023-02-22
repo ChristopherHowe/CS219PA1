@@ -18,7 +18,7 @@ class Operator{
     string getName();
     int getNumOperands();
 
-    virtual uint32_t execute(uint32_t a = 0, uint32_t b = 0, uint32_t c = 0) = 0;
+    virtual uint32_t execute(string[MAX_OPERANDS]) = 0;
 };
 
 #endif
