@@ -11,7 +11,9 @@ class Add : public Operator{
     }
 
     uint32_t execute(string operands[MAX_OPERANDS]){
-        return operands[0] + operands[1];
+        uint32_t ops[MAX_OPERANDS];
+        stringToHex(operands, ops);
+        return ops[0] + ops[1];
     }
 };
 

@@ -1,12 +1,11 @@
-#include "operators.h"
+#include "operators.cpp"
 #include "fstream"
-#include <bits/stdc++.h>
 
 #define MAX_COMMANDS 10
 
 
 int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[MAX_COMMANDS][MAX_OPERANDS]);
-uint32_t resolve(string, string[MAX_OPERANDS]);
+uint32_t resolve(string oporator, string operands[MAX_OPERANDS]);
 int main(){
     Operators operators;
     string operatorNames[MAX_COMMANDS];
@@ -20,11 +19,8 @@ int main(){
         for(int x = 0; x < MAX_OPERANDS; x++){
             cout << " operand: " << commandOperands[i][x];
         }
-        cout << endl << "result: " << resolve(operatorNames[i],); 
+        cout << endl << "result: " << resolve(operatorNames[i],commandOperands[i]); 
     }
-
-    uint32_t test = 0x00A;
-    cout << operators.getOperators()[0]->execute(test,test);
     return 0;
 }
 
@@ -53,20 +49,22 @@ int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[M
     return linesRead;
 }
 
-uint32_t resolve(string operator, string operands[MAX_OPERANDS]){
+uint32_t resolve(string opName, string operands[MAX_OPERANDS]){
     Operators operators;
     for (int i=0; i<NUM_OPERATORS; i++){
-        if (operator == operators.getOperators()[i]->getName()){
-            op = operators.getOperators()[i];
+        Operator* op = operators.getOperators()[i];
+        if (opName == op->getName()){
             //check for if enough operators are provided
-            for(int x = 0; x < op.getNumOperands(); x++){
+            for(int x = 0; x < op->getNumOperands(); x++){
                 if(operands[x] == ""){
                     cout << "enough operators where not provided for operation: ";
-                    cout << operator << endl;
+                    cout << opName << endl;
                     return -1;
                 }
             }
-
+            return op->execute(operands);
         }
     }
+    cout << "invalid operation provided: " << opName << endl;
+    return -1;
 }

@@ -1,7 +1,7 @@
 #ifndef OPERATORS_H
 #define OPERATORS_H
 
-#include "addOp.h"
+#include "addOp.cpp"
 
 #define NUM_OPERATORS 1
 

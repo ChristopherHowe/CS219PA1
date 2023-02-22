@@ -4,12 +4,14 @@
 #define MAX_OPERANDS 3
 
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Operator{
     protected:
     string name;
     int numOperands;
+    void stringToHex(string Operands[MAX_OPERANDS], uint32_t result[MAX_OPERANDS]);
 
     public:
     Operator();
