@@ -5,6 +5,7 @@
 using namespace std;
 
 class Operator{
+    protected:
     string name;
     int numOperands;
 
