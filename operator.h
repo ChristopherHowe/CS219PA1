@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//response structure used to return the overflow flag
 struct Response{
     uint32_t value;
     bool overflow;
@@ -17,6 +18,10 @@ struct Response{
     }
 };
 
+
+//operator class used as a base class for all commands. 
+//contains the execute pure virtual function which is called by all functions
+
 class Operator{
     protected:
     string name;
@@ -24,9 +29,10 @@ class Operator{
     void stringToHex(string Operands[MAX_OPERANDS], uint32_t result[MAX_OPERANDS]);
 
     public:
+    //constructors
     Operator();
     Operator(string, int);
-    
+    //getters
     string getName();
     int getNumOperands();
 

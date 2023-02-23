@@ -9,7 +9,7 @@ class Add : public Operator{
         name = "ADD";
         numOperands = 2;
     }
-
+    //implimentation of pure virtual function, adds the two hex values and returns whether or not overflow occured
     Response execute(string operands[MAX_OPERANDS]){
         uint32_t ops[MAX_OPERANDS];
         stringToHex(operands, ops);

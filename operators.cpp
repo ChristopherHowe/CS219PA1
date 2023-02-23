@@ -5,6 +5,9 @@
 
 #define NUM_OPERATORS 1
 
+
+//includes all of the operators that are available in the program
+//is used to iterate over all of the operators to find the correct command
 class Operators{
     int numOperators;
     Operator* operators[NUM_OPERATORS];

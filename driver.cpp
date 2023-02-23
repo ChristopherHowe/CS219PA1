@@ -27,6 +27,8 @@ int main(){
 }
 
 
+
+//gets all of the commands from the input text file
 int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[MAX_COMMANDS][MAX_OPERANDS]){
     string line; 
     int linesRead = 0;
@@ -49,6 +51,8 @@ int getCommands(string fileName, string opNames[MAX_COMMANDS], string operands[M
     return linesRead;
 }
 
+
+//resolves each command, and determines is a command is valid or not.
 Response resolve(string opName, string operands[MAX_OPERANDS]){
     Operators operators;
     for (int i=0; i<NUM_OPERATORS; i++){
